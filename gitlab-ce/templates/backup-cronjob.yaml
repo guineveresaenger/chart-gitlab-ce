@@ -1,16 +1,16 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "fullname" . }}-backup-cronjob
 spec:
-  schedule: "@hourly"
+  schedule: "{{ .Values.backup-cronjob.schedule }}"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: ci-backup
-            image: quay.io/samsung-cnct/gitlab-operator
+            image: "{{ .Values.backup-cronjob.image }}"
             args:
             - /bin/sh
             - -c

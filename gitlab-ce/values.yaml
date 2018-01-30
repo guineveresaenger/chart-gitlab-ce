@@ -163,6 +163,11 @@ networkPolicy:
 #      - key: app
 #        value: frontend
 
+## Configuration values for backup cronjob
+## Set for hourly backup
+backup-cronjob:
+  schedule: "@hourly"
+  image: "quay.io/samsung-cnct/gitlab-operator"
 
 ## Configuration values for the postgresql dependency.
 ## ref: https://github.com/kubernetes/charts/blob/master/stable/postgresql/README.md
